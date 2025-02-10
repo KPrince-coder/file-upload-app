@@ -33,6 +33,8 @@ Welcome to the **File Upload App**! This Streamlit-based app allows users to upl
      ```
 
    - Open your browser and go to `http://localhost:8501` to view the app.
+  
+   - Live url: `https://file-upload-app.streamlit.app/`
 
 2. **Upload Files**:
    - **Images**: Select "Home" from the sidebar to upload one or more image files. The app will display the images with their file names.
