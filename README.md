@@ -29,7 +29,7 @@ Welcome to the **File Upload App**! This Streamlit-based app allows users to upl
    - Run the app with the following command:
 
      ```bash
-     uv run app.py
+     uv run streamlit run app.py
      ```
 
    - Open your browser and go to `http://localhost:8501` to view the app.
