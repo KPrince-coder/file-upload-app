@@ -1,3 +1,7 @@
+# Date: February 10, 2025
+# Author: Prince Kyeremeh
+
+
 import streamlit as st
 import pandas as pd
 import docx2txt
@@ -10,6 +14,21 @@ st.title("File Upload App")
 
 
 def upload_image():
+    """
+    Allows users to upload one or more image files. If a file is uploaded, it displays the
+    file name and renders the image in a Streamlit image widget. Supported image formats
+    are PNG, JPG, and JPEG.
+
+    Parameters
+    ----------
+
+    None
+
+    Returns
+    -------
+
+    None
+    """
     image_file = st.file_uploader(
         "Upload Images", type=["png", "jpg", "jpeg"], accept_multiple_files=True
     )
@@ -23,6 +42,11 @@ def upload_image():
 
 
 def upload_dataset():
+    """
+    Allows users to upload a CSV dataset file. If a file is uploaded, it displays the file name
+    and renders the data in a Streamlit dataframe. Only single file uploads are supported.
+    """
+
     dataset_file = st.file_uploader(
         "Upload Dataset",
         type=["csv"],
@@ -39,6 +63,13 @@ def upload_dataset():
 
 
 def upload_document_files():
+    """
+    Allows users to upload one or more document files (PDF, DOCX, TXT). If a file is uploaded, it
+    displays the file name and provides buttons to toggle visibility of file details and view file content.
+    File details include name, type, and size. File content is extracted using pdfplumber, docx2txt, or
+    plain text read. If an error occurs while extracting file content, an error message is displayed.
+    """
+
     # Initialize session state for tracking file details, visibility, and content
     if "file_details" not in st.session_state:
         st.session_state.file_details = {}
@@ -133,6 +164,13 @@ def upload_document_files():
 
 
 def main():
+    """
+    Main entry point for the Streamlit app. Shows a sidebar with options to upload either
+    an image, a dataset, or document files. Depending on the selection, it calls the
+    corresponding function to handle the upload.
+
+    :return: None
+    """
     menu = ["Home", "Dataset", "Document Files"]
     st.sidebar.markdown("## File Upload Options")
     choice = st.sidebar.selectbox("**Menu**", menu)
